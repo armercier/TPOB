@@ -61,7 +61,20 @@ Raman scattering est très faible, important de réduire ou diminuer le bruit (l
 
    [Source utile](https://www.ptgrey.com/white-paper/id/10912)
 
-3. Bruit photon p/r nombre photons mesuré
+3. Bruit photon p/r nombre photons mesuré 
+
+   [Lien vers graphique](https://github.com/SebJercz/TPOB/blob/master/fig/raman/noisevsphotons.png)
+
+   La datasheet parle uniquement de bruit statique
+
+   Pour le PIXIS 100-B, 2 vitesse d'acquisitions sont possibles
+
+   - 100kHz: 3e- rms (typical), 5e- rms (max)
+   - 2 MHz: 11e- rms (typical), 16e- rms (max)
+
+   Si on assume que le bruit est un signal sinusoidal, le peak sera à $$\sqrt{2}\cdot U_{rms}$$
+
+   le bruit relatif à la mesure à 80 degré celsius est de 0.001, ce qui explique la pente du graphique
 
 4. fréquence de vibration
 
