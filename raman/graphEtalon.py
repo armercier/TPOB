@@ -5,12 +5,14 @@ pixels = []
 intensity = []
 
 #READ FILE
-valuePairs = [line.rstrip('\n') for line in open('donnees/olive_oil2.TXT')]
+valuePairs = [line.rstrip('\n') for line in open('donnees/mercure_etalon.TXT')]
 valuePairs.pop()
 for i in valuePairs:
     values = i.split(',')
     pixels.append(int(values[1]))
     intensity.append(int(values[2]))
+intensity.pop()
+pixels.pop()
 
 intensityNorm = [x / max(intensity) for x in intensity]
 
@@ -23,5 +25,7 @@ print(z[0])
 
 wavelength = [x * z[0] + z[1] for x in pixels]
 
-plt.plot(wavelength, intensityNorm)
+plt.plot(wavelength, intensityNorm,'k-')
+plt.xlabel("Pixel du CCD")
+plt.ylabel("Intensité normalisée")
 plt.show()

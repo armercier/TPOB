@@ -200,13 +200,63 @@ Pour que laugmentation du signal soit linéaire, il faut donc soustraire le brui
 
 Counts:
 
-**Analyse: **
+**Analyse: ** sera faite apres les laboratoires
 
 
 
 #### Étalonnage de la caméra sur l’axe des longueurs d’onde ####
 
-Trois gros pics, creux = 
+Trois gros pics, creux = Pics seront identifiés avec le tableau de pics du mercure afin de changer l'axe de pixels à un axe en longueur d'onde
+
+On remarque que dans les données il y a un "creux " dans le signal, on détermine que c'est le manque de signal causé par le filtre qui bloque le 632.8nm, alors les longueurs d'ondes a droite de ceux creux sont les longueurs d'onde plus élevées (réseau de diffraction en transmission envoie les plus haute longueurs d'onde plus en angle). Les pics visibles sont donc des pics plus haut que 632nm
+
+
+
+### Entre les deux périodes ###
+
+Les pics visibles dans le spectre du mercure sont aux valeurs de pixel 589, 844, 1092 et 1106. Selo [le tableau des pics du mercure](http://njsas.org/projects/atoms/spectral_lines/1/mercury_nist.html), il y a des pics du mercure à environ 671, 690, 708 et 709nm. Si on graph ces valeurs, on remarque que que c'est très linéaire, alors les pics ont bien été identifié. On peut faire un polyfit linéaire pour trouver la fonction qui va transformer les valeurs de pixel en longueur d'onde en nm, ce qui donne $$\lambda = 0.07343918330732058x + 627.8355813527794$$ .
+
+
+
+
+
+### Deuxième période ###
+
+Prise du spectre de l'éthanol :
+
+* Au départ seulement une ligne droite autour de la valeur du bruit de lecture
+
+#### Discussion avec Simon
+
+Spectre de l'huile d'olive montre seulement une grosse bosse (temps intégration a 100ms). 
+
+
+
+#### Prises de données
+
+| Substance           | Spectrum File             | Integration time[s] | Spectrum accumulation |      |
+| ------------------- | ------------------------- | ------------------- | --------------------- | ---- |
+| Olive oil           | olive_oil.txt             |                     |                       |      |
+| Sunflower oil       |                           |                     |                       |      |
+| Peanut oil          |                           |                     |                       |      |
+| Canola oil          |                           |                     |                       |      |
+| Corn oil            |                           |                     |                       |      |
+| Ethanol             | ethanol.txt               | 50                  | 1                     |      |
+| Methanol            | methanol.txt              | 180                 | 1                     |      |
+| Isopropanol         | isopropanol.txt           | 120                 | 1                     |      |
+| Sucrose             | sucrose.txt.              | 120                 | 3                     |      |
+| Glucose             | g                         |                     |                       |      |
+| A,B,C,D,E,F,G,H,I,J | A.txt, B.txt, C.txt, etc. |                     |                       |      |
+|                     |                           |                     |                       |      |
+|                     |                           |                     |                       |      |
+
+* Gain ajusté à 1, rate a 2MHz et Readout etait Low noise
+* Spectrum accumulation : pour les spcetres qui ont de la fluorescence superposée (voir discussion avec Dan)
+* On ajuste temps d'exposition pour bien voir les pics
+
+#### Discussion avec Dan
+
+bruit fluo domine sur signal raman
 
 
 
