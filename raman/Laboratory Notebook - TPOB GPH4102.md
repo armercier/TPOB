@@ -216,19 +216,18 @@ On remarque que dans les données il y a un "creux " dans le signal, on détermi
 
 Les pics visibles dans le spectre du mercure sont aux valeurs de pixel 589, 844, 1092 et 1106. Selo [le tableau des pics du mercure](http://njsas.org/projects/atoms/spectral_lines/1/mercury_nist.html), il y a des pics du mercure à environ 671, 690, 708 et 709nm. Si on graph ces valeurs, on remarque que que c'est très linéaire, alors les pics ont bien été identifié. On peut faire un polyfit linéaire pour trouver la fonction qui va transformer les valeurs de pixel en longueur d'onde en nm, ce qui donne $$\lambda = 0.07343918330732058x + 627.8355813527794$$ .
 
-
-
-
+[Lien vers spectre mercure](https://github.com/SebJercz/TPOB/blob/master/raman/fig/mercure.png) [Lien vers spectre olive oil](https://github.com/SebJercz/TPOB/blob/master/raman/fig/oliveoil.png)
 
 ### Deuxième période ###
 
 Prise du spectre de l'éthanol :
 
 * Au départ seulement une ligne droite autour de la valeur du bruit de lecture
+* en ajustant le temps d'intégration (100ms a 5s), on a pu obtenir des pics ayant environ 10000 d'intensité
 
-#### Discussion avec Simon
+#### Discussion avec Simon (comment extraire Raman avec bosse de fluorescence)
 
-Spectre de l'huile d'olive montre seulement une grosse bosse (temps intégration a 100ms). 
+Spectre de l'huile d'olive montre seulement une grosse bosse (temps intégration a 100ms). Toutefois, le spectre raman est toujours existant, il est toutefois noyé dans le signal de fluorescence. Avec un temps d'intégration trop court, le signal  est moins important que le bruit. Toutefois, plus le temps d'intégration augmente, plus le signal de fluorescence et de spectre Raman va augmenter de facon linéaire, **MAIS** le bruit vais seulement augmenter avec la racine, alors le bruit de la fluorescence p/r au signal va dimminuer, jusqua ce que le signal soit bien visible dans la courbe. Il sera ensuite possible de soustraire la courbe de fluorescence pour avoir seulement le spectre raman. 
 
 
 
@@ -237,15 +236,15 @@ Spectre de l'huile d'olive montre seulement une grosse bosse (temps intégration
 | Substance           | Spectrum File             | Integration time[s] | Spectrum accumulation |      |
 | ------------------- | ------------------------- | ------------------- | --------------------- | ---- |
 | Olive oil           | olive_oil.txt             |                     |                       |      |
-| Sunflower oil       |                           |                     |                       |      |
-| Peanut oil          |                           |                     |                       |      |
-| Canola oil          |                           |                     |                       |      |
-| Corn oil            |                           |                     |                       |      |
+| Sunflower oil       | sunflower_oil.txt         |                     |                       |      |
+| Peanut oil          | peanut_oil.txt            |                     |                       |      |
+| Canola oil          | canola_oil.txt            |                     |                       |      |
+| Corn oil            | corn_oil.txt              |                     |                       |      |
 | Ethanol             | ethanol.txt               | 50                  | 1                     |      |
 | Methanol            | methanol.txt              | 180                 | 1                     |      |
 | Isopropanol         | isopropanol.txt           | 120                 | 1                     |      |
 | Sucrose             | sucrose.txt.              | 120                 | 3                     |      |
-| Glucose             | g                         |                     |                       |      |
+| Glycerol            | glucose.txt               | 120                 | 1                     |      |
 | A,B,C,D,E,F,G,H,I,J | A.txt, B.txt, C.txt, etc. |                     |                       |      |
 |                     |                           |                     |                       |      |
 |                     |                           |                     |                       |      |
