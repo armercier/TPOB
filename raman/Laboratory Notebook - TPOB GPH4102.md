@@ -98,8 +98,115 @@ Raman scattering est très faible, important de réduire ou diminuer le bruit (l
 
    13.8% saturé, 70% mono-insaturé, 13.2% poly-insaturé
 
-
 ### In Lab
+
+**info avec Simon Rainville: **
+
+Fluorescence : Phénomène de résonance, seulement à une longueur d'onde précise, Raman scatter peut arriver peut importe la longueur d'onde mais beaucoup moins intense et cause un moins grand shift de longueur d'onde.
+
+Le raman scattering produit tres peu de signal, alors il faut bien gérer le bruit.
+
+Trois type de bruits : 
+
+* Lecture : Constant peu importe temps d'intégration, "taxe" sur lecture du pixel
+* Thermique : Taux/probabilité que capteur génere un électron a cause de température -> +temp = +taux, bruit est linéaire en fonction du temps
+* Shot noise : Bruit sur lecture (moyenne 100phot/s, peut mesure autre chose que 1000) : un source lumineuse qui envoie des photons suit la distribution de poisson -> bruit sur nb de photons = sqrt(nb photons). SNR = N/sqrt(N) = sqrt(N)
+
+
+
+#### Manipulations ####
+
+**Exploration du montage** 
+
+Parties importantes du montage :
+
+* Notch filter : permet de bloquer la longueur d'onde 632.8nm qui pourrait provenir de la diffusion ou de la Rayleigh scattering. Bloque les longueur d'onde avec son épaisseur, alors important que la lumière arrive perpendiculaire -> on utilise des lentilles avant pour colimer la lumière.
+* Fente verticale : permet d'avoir un faisceau le plus ponctuel possible afin d'avoir des pics tres mince sur le spectre et pour éviter l'overlap de certains pics. Plus la fente est petite, plus le signal est "sharp" mais plus on perd de signal
+* f
+
+#### Caractérisation du bruit de lecture ####
+
+On enregistre des données ASCII pour différents temps d'intégration pour identifier les bruit de lecture
+
+| **Temps d'intégration** (ms) | Nom du fichier     |
+| ---------------------------- | ------------------ |
+| 100                          | bruit_mesure_100ms |
+| 75                           | bruit_meusre_75ms  |
+| 50                           | bruit_meusre_50ms  |
+| 25                           | bruit_meusre_25ms  |
+| 10                           | bruit_meusre_10ms  |
+| 5                            | bruit_meusre_5ms   |
+| 1                            | bruit_meusre_1ms   |
+| 0.1                          | bruit_meusre_100us |
+| 0.001                        | bruit_meusre_1us   |
+
+~~**Observations : ** L'intensité mesurée est toujours autour de 61400, ce qui veut dire qu'une bonne partie du signal capté est uniquement le bruit de lecture?~~  Avec la fonction binning, l'axe des Y n'est pas divisé par le nombre de pixel vertical (100 dans notre cas). On a donc des valeurs qui oscillent autour de 614 pour chaque pixel peu importe le temps d'intégration. 
+
+Après l'échange avec Daniel, different settings de la caméra ont été changé (changé en mode low noise et fréquence 2GHz). Ces données ont donc dues être reprise avec ces settings
+
+Nombre de COUNTS : 
+
+#### Caractérisation du bruit thermique ####
+
+On enregistre des données ASCII pour différents temps d'intégration pour identifier le bruit thermique
+
+| **Temps d'intégration** (s) | Nom du fichier       |
+| --------------------------- | -------------------- |
+| 1                           | bruit_thermique_1s   |
+| 10                          | bruit_thermique_10s  |
+| 50                          | bruit_thermique_50s  |
+| 100                         | bruit_thermique_100s |
+
+**Observations : **On remarque que prendre des mesures avec les lampes allumées faisait apparaitre des pics dans le spectre obtenu, il a donc fallu s'assurer de bien tout eteindre. Toutefois, des pics etaient toujours présents dans les images, surtout pour 50 et 100 secondes
+
+Après l'échange avec Daniel, different settings de la caméra ont été changé (changé en mode low noise et fréquence 2GHz). Ces données ont donc dues être reprise avec ces settings
+
+Afin de s'assurer que les données mesurées proviennent vraiement du bruit thermique, les mesures seront fait ou le filtre coupe la lumiere vers 632nm, alors on sait que l'augmentation du signal va provenir du temps d'intégration et du bruit thermique
+
+Nombre de COUNTS : 
+
+**Analyse: **  
+
+
+
+
+
+#### Caractérisation du bruit de photon 	####
+
+On enregistre des données ASCII pour différents temps d'intégration pour identifier le bruit de photon
+
+| **Temps d'intégration** (s) | Nom du fichier          |
+| --------------------------- | ----------------------- |
+| 0.001                       | bruit_grenaille_1ms     |
+| 0.1                         | bruit_grenaille_100ms   |
+| 1                           | bruit_grenaille_1s      |
+| 5                           | bruit_grenaille_5s      |
+| 10                          | bruit_grenaille_10s     |
+| ~~50~~                      | ~~bruit_grenaille_50s~~ |
+
+**Observations : ** Forme générale du spectre reste la même
+
+gossage avec Daniel : 
+
+bruit de mesure  79500
+
+80300 ± 150 pour 30ms
+
+80850 ± 150 pour 60ms
+
+85200 ± pour 240ms
+
+Pour que laugmentation du signal soit linéaire, il faut donc soustraire le bruit de mesure. (et aussi le bruit thermique?) Pour le bruit de photon, on peut également considérer une zone du spectre ou l'intensité est constante (pixel 980 et 1020) pour caractériser la moyenne et l'écart type du signal obtenu afin d'éviter de prendre de tres longues acquisisitons
+
+Counts:
+
+**Analyse: **
+
+
+
+#### Étalonnage de la caméra sur l’axe des longueurs d’onde ####
+
+Trois gros pics, creux = 
 
 
 
