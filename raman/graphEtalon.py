@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import matplotlib
 import numpy as np
 
 pixels = []
@@ -30,4 +31,7 @@ wavelength = wavelength[260:-1]
 plt.plot(wavelength, intensityNorm,'k-')
 plt.xlabel("Longueur d'onde [nm]")
 plt.ylabel("Intensité normalisée")
+plt.savefig("fig1.png", dpi=700)
 plt.show()
+
+
