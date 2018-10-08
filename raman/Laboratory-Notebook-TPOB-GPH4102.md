@@ -44,7 +44,7 @@ Raman scattering est très faible, important de réduire ou diminuer le bruit (l
 
    Nombre de photons nécessaires pour ajouter un électron au well dépend de la *quantum efficiency*
 
-   [Graphique QE en fonction longueur d'onde](https://github.com/SebJercz/TPOB/blob/master/fig/raman/Screenshot%20at%202018-09-24%2013_24_29.png)
+   [Graphique QE en fonction longueur d'onde](https://github.com/SebJercz/TPOB/blob/master/raman/fig/raman/Screenshot%20at%202018-09-24%2013_24_29.png)
 
    Pour le CCD PIXIS100-B utilisé en laboratoire, cela correspond donc à une quantum efficiency d'environ 96%. Toutefois, les émissions Stokes et antistokes sont à d'autre longueurs d'ondes. Selon différentes recherches, ont peut estimer que les longueurs d'onde mesurées vont varier entre 600 et 750nm. 
 
@@ -63,7 +63,8 @@ Raman scattering est très faible, important de réduire ou diminuer le bruit (l
 
 3. Bruit photon p/r nombre photons mesuré 
 
-   [Lien vers graphique](https://github.com/SebJercz/TPOB/blob/master/fig/raman/noisevsphotons.png)
+   [Lien vers graphique](https://github.com/SebJercz/TPOB/blob/master/raman/fig/raman/noisevsphotons.png)
+   CE GRAPHIQUE N'EST PLUS BON
 
    La datasheet parle uniquement de bruit statique
 
@@ -88,7 +89,7 @@ Raman scattering est très faible, important de réduire ou diminuer le bruit (l
 
 6. Spectres chlorophylle
 
-   [Figure des spectres de la chlorophyle](https://github.com/SebJercz/TPOB/blob/master/fig/raman/absorption.gif) [source](http://www.photosynthesis.ch/fluorescence.htm)
+   [Figure des spectres de la chlorophyle](https://github.com/SebJercz/TPOB/blob/master/raman/fig/raman/absorption.gif) [source](http://www.photosynthesis.ch/fluorescence.htm)
 
    *Pics d'absorbtion* : 430nm et 662nm
 
@@ -122,7 +123,7 @@ Parties importantes du montage :
 
 * Notch filter : permet de bloquer la longueur d'onde 632.8nm qui pourrait provenir de la diffusion ou de la Rayleigh scattering. Bloque les longueur d'onde avec son épaisseur, alors important que la lumière arrive perpendiculaire -> on utilise des lentilles avant pour colimer la lumière.
 * Fente verticale : permet d'avoir un faisceau le plus ponctuel possible afin d'avoir des pics tres mince sur le spectre et pour éviter l'overlap de certains pics. Plus la fente est petite, plus le signal est "sharp" mais plus on perd de signal
-* f
+* Logiciel d'acquisition : winspec32. Nous avons fixé le rate a 2MHz, le readout a low noise et le gain a 1 pour toute lexpérience
 
 #### Caractérisation du bruit de lecture ####
 
@@ -165,9 +166,7 @@ Afin de s'assurer que les données mesurées proviennent vraiement du bruit ther
 
 Nombre de COUNTS : 
 
-**Analyse: **  
-
-
+**Analyse: **  Après laboratoire
 
 
 
@@ -227,7 +226,7 @@ Prise du spectre de l'éthanol :
 
 #### Discussion avec Simon (comment extraire Raman avec bosse de fluorescence)
 
-Spectre de l'huile d'olive montre seulement une grosse bosse (temps intégration a 100ms). Toutefois, le spectre raman est toujours existant, il est toutefois noyé dans le signal de fluorescence. Avec un temps d'intégration trop court, le signal  est moins important que le bruit. Toutefois, plus le temps d'intégration augmente, plus le signal de fluorescence et de spectre Raman va augmenter de facon linéaire, **MAIS** le bruit vais seulement augmenter avec la racine, alors le bruit de la fluorescence p/r au signal va dimminuer, jusqua ce que le signal soit bien visible dans la courbe. Il sera ensuite possible de soustraire la courbe de fluorescence pour avoir seulement le spectre raman. 
+Spectre de l'huile d'olive montre seulement une grosse bosse (temps intégration a 100ms). Toutefois, le spectre raman est toujours existant, il est toutefois noyé dans le signal de fluorescence. Avec un temps d'intégration trop court, le signal  est moins important que le bruit. Toutefois, plus le temps d'intégration augmente, plus le signal de fluorescence et de spectre Raman va augmenter de facon linéaire, **MAIS** le bruit vais seulement augmenter avec la racine, alors le bruit de la fluorescence p/r au signal va dimminuer, jusqua ce que le signal soit bien visible dans la courbe. Il sera ensuite possible de soustraire la courbe de fluorescence pour avoir seulement le spectre raman. LA plage dynamique (16bits vs 8 bits) est donc très inportante afin de détecter le signal Raman très faible additionné sur le signal de fluorescence beaucoup plus important.
 
 
 
@@ -235,27 +234,38 @@ Spectre de l'huile d'olive montre seulement une grosse bosse (temps intégration
 
 | Substance           | Spectrum File             | Integration time[s] | Spectrum accumulation |      |
 | ------------------- | ------------------------- | ------------------- | --------------------- | ---- |
-| Olive oil           | olive_oil.txt             |                     |                       |      |
-| Sunflower oil       | sunflower_oil.txt         |                     |                       |      |
-| Peanut oil          | peanut_oil.txt            |                     |                       |      |
-| Canola oil          | canola_oil.txt            |                     |                       |      |
-| Corn oil            | corn_oil.txt              |                     |                       |      |
+| Olive oil           | olive_oil.txt             | 10                  | 180                   |      |
+| Sunflower oil       | sunflower_oil.txt         | 60                  | 5                     |      |
+| Peanut oil          | peanut_oil.txt            | 10                  | 10                    |      |
+| Canola oil          | canola_oil.txt            | 60                  | 10                    |      |
+| Corn oil            | corn_oil.txt              | 60                  | 5                     |      |
 | Ethanol             | ethanol.txt               | 50                  | 1                     |      |
 | Methanol            | methanol.txt              | 180                 | 1                     |      |
 | Isopropanol         | isopropanol.txt           | 120                 | 1                     |      |
 | Sucrose             | sucrose.txt.              | 120                 | 3                     |      |
 | Glycerol            | glucose.txt               | 120                 | 1                     |      |
-| A,B,C,D,E,F,G,H,I,J | A.txt, B.txt, C.txt, etc. |                     |                       |      |
-|                     |                           |                     |                       |      |
-|                     |                           |                     |                       |      |
+| A,B,C,D,E,F,G,H,I,J | A.txt, B.txt, C.txt, etc. | 20                  | 1                     |      |
 
 * Gain ajusté à 1, rate a 2MHz et Readout etait Low noise
 * Spectrum accumulation : pour les spcetres qui ont de la fluorescence superposée (voir discussion avec Dan)
 * On ajuste temps d'exposition pour bien voir les pics
+* Substances inconnues : C a utilisé 3 accums, D  8 accums, G 5 accums (tout pour rendre les pics plus précis)
 
 #### Discussion avec Dan
 
-bruit fluo domine sur signal raman
+Le signal de la fluorescence est beaucoup plus important que lui de la spectroscopie raman. Les signals se superposent il faut donc assez de signal pour pouvoir distinguer le raman. 
+
+Calculs
+
+olive oil: le signal mixumum atteint apres 100ms d'intégration est 12000. aucun pic de Raman peut être vu.
+éthanol (substance pure, pas de fluorescence) pour 50s d' integration, le signal maximal du plus petit pic est de 2500.
+Le signal raman est donc de 4 pour un temps de 100ms. Le signal Raman est don 3000 fois plus petit. Le bruit de photon de la fluorescence $$\sqrt{12000}=110$$. Pour considérer que le signal Raman est visible au dessus du bruit, on veut un pic 5x plus gros que le bruit. On peut calculer le temps nécessaire :
+$$4*t[ms]/100=5*\sqrt{12000*t/100}$$
+isolant t, on obtient 30min de temps d'intégration. En utilisant la fonction d'accumulation de Winspec, on peut faire plusieurs acquisitions qui seront additionnées pour éviter la saturation d'une intégration continue de 30min.
+
+Forme de bosse dérrière les spectre raman des substance A a J = un peu de fluorescence
+
+il a été discuté que les pics élevé autour du filtre sont du a l'allignement imparfait du système 4f qui collecte la lumiere de l'échantillon
 
 
 
