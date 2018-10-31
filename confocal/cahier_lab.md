@@ -17,3 +17,63 @@ Marqueurs : Molécule endogène, molécules organiques, protéines fluorescentes
 Photoblanchiment : durant excitation les molécalues peuvent faire des réaction et perdre leur propriété fluorescente. Eviter les temps d'Acquisition très long.
 
 ### In Lab 
+
+#### Observations montage
+
+Explication générale : Le signal du laser est envoyé vers une système du galvanomètre qui va rediriger le faisceau. un système 4f est situé après le galvanomètre pour grossir le faisceau afin qu'il remplisse toute l'ouverture numérique de l'objectif. Cela permet  de mieux focaliser la lumière sur l'échantillon et d'avoir la meilleur résolution possible. le signal est déscanné et est envoyé a travers un miroir dichroique puis vers un pinhole qui va bloquer toute la lumière hors focus(ou au moins diminuer son intensité). 
+
+Miroir dichroique : laisse passer la lumière jusqu'à une certaine longueur d'onde, puis la réfléchie. Deuxx problemes : on travail en réfelctance alors la longueur d'onde ne change pas, le laser devrait être réfléchi autant à l'allé et au retour. De plus, la fluorescence réemet de la lumiere a plus haute longueur d'onde (a moins d'Avoir anti-stokes, ce qui n'est pas le cas), alors le miroir devrait encore bloquer la lumière. Ces deux problèmes sont ngéligeable puisque que le miroir n'est pas parfaitement alligné a 45 degré et qu'il n'est pas parfait, donc il y a toujours environ 1% du signal qui le traverse (SPEC SHEET). Ce 1% de signal est toutefois très suffisant pour que le PMT puisse amplifier le signal.
+
+PMT : 
+
+Objectif : [UPLSAPO-40x2](https://www.olympus-lifescience.com/en/objectives/uplsapo/#!cms[tab]=%2Fobjectives%2Fuplsapo%2F40x2)
+
+Bague prend en compte l'épaisseur du cover glass sur l'échantillon, mais la cible USAF qui sera utilisé pour mesurer la résolution n'en a pas, pas trop grave...
+
+ 
+
+#### Manipulations
+
+##### Trouver foyer
+
+On met le gain du PMT a zéro. On place une feuille blanche sous l'échantillion et on peut voir le patern de la cible USAF environ au centre pour bien s'enligner. À l'aide de APT user sur l'ordinateur, on déplace la plaque qui a l'échantillon. La projection du patron de calibration sur la feuille de papier va zoomer jusqu'a temps que'on atteigne environ le focus, et l'image va dézoomer. Sachant la position approximative du focus, on augmente le gain jusqu'a ce quon voit le patron sur Scanimage. On peut ensuite descendre le step du moteur et ajuster la position de l'échantillon plus précisement en cherchant l'image avec les patrons les plus visible, en s'assurant de diminuer le gain pour ne pas saturer. Position sur APT user : -0.3922 , V range = 0.5
+
+Oscilloscope : On voit un pic principal important a environ 10V et plusieurs petits pics qui suivent à environ 2V. L'intervalle en temps entre les pics est d'environ 60ns.
+
+#### Résolution xy
+
+Voici un tableau des images utilisée pour caractériser la résolution en x et en y pour différent zooms :
+
+| Groupe et sous-groupe | Zoom | Moyenne | Nom fichier           | Résolution |
+| --------------------- | ---- | ------- | --------------------- | ---------- |
+| 5-6                   | x5   | 20      | edge_g5_l6_x5.tif     |            |
+| 7-6                   | x8   | 20      | edge_g7_l1_x8.tif     |            |
+| 5-6                   | x2   | 20      | pixelres_g5_l6_x2.tif |            |
+| 5-6                   | x3   | 20      | edge_g5_l6_x3.tif     |            |
+| 5-6                   | x4   | 20      | edge_g5_l6_x4.tif     |            |
+| 7-1                   | x6   | 20      | edge_g7_l1_x6.tif     |            |
+| 7-1                   | x7   | 20      | edge_g7_l1_x7.tif     |            |
+
+Avec ImageJ, on peut ensuite observer le profil des edges des lignes (edge transfer function). De plus, avec les memes images et les specs de la cible USAF, on peut déterminer un pixel en micron.  résolution : largeur de la edge transfer function (90% a 10%) en micron.
+
+Note : ne pas déplacer la plaque avec le "shift " sur ScanImage, cela désaligne les galvo.
+
+
+
+edge transfer function : convolution entre psf et notre edge
+
+#### Résolution z
+
+données
+
+Les images initiales commences très foncée est deviennent de plus en plus brillante plus on s'approche du focus. Toutefois, après avoir passé le focus, le images ne redeviennent pas tout a fait noire et on observe des "vagues de signal" sur la plaque. Ceci est probablement du a la plaque de resolution USAF qui n'Est pas tout a fait droite et cela peut créer une perte de symétrie et de l'interférence.
+
+Champ de vue : 127/127
+
+#### Fluorescence
+
+On remplace l'échantillon USAF par une feuille d'arbre. Étant donné qu'on est maintenant en fluorescence et que le signal de reflectance est plus important que le signal de fluorescence (malgré le miroir dichroique), il est important d'utiliser un filtre passe haut 650 nm pour couper le signal de réflectance.
+
+Il est important d'ajuster la bague sur l'objectif qui prend compte du cover sur l'échantillon. La boite dit que ceux si sont entre 0.13 et 0.17mm d'épais, alors la bague est ajustée a 0.15 ce qui semble donner le meilleur résultat. Après avoir trouvé le focus, il faut mettre le gain et le laser au max pour voir quelques cellules.
+
+ovocite : 0.4484 intervalle de 5 micron. On refait le focus et on prend des images a différentes hauteurs pour faire une reconstruction 3D de l'ovocite. 0.5 micron par pixel et on bouge de 5 micron = voxel depth de 10 
