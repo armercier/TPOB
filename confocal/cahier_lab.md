@@ -44,31 +44,41 @@ Oscilloscope : On voit un pic principal important a environ 10V et plusieurs pet
 
 Voici un tableau des images utilisée pour caractériser la résolution en x et en y pour différent zooms :
 
-| Groupe et sous-groupe | Zoom | Moyenne | Nom fichier           | Résolution |
-| --------------------- | ---- | ------- | --------------------- | ---------- |
-| 5-6                   | x5   | 20      | edge_g5_l6_x5.tif     |            |
-| 7-6                   | x8   | 20      | edge_g7_l1_x8.tif     |            |
-| 5-6                   | x2   | 20      | pixelres_g5_l6_x2.tif |            |
-| 5-6                   | x3   | 20      | edge_g5_l6_x3.tif     |            |
-| 5-6                   | x4   | 20      | edge_g5_l6_x4.tif     |            |
-| 7-1                   | x6   | 20      | edge_g7_l1_x6.tif     |            |
-| 7-1                   | x7   | 20      | edge_g7_l1_x7.tif     |            |
+| Groupe et sous-groupe | Zoom | Moyenne | Nom fichier           | Résolution x (pixel, edge 90% a 10%) | Résolution y (pixel, edge 90% a 10%) | Pixel pour 1 ligne + un espace |
+| --------------------- | ---- | ------- | --------------------- | ------------------------------------ | ------------------------------------ | ------------------------------ |
+| 5-6 (17.54)           | x5   | 20      | edge_g5_l6_x5.tif     | 4.6                                  | 4.2                                  | 94.1                           |
+| 7-6 (4.38)            | x8   | 20      | edge_g7_l1_x8.tif     | 6.0                                  | 5.8                                  | 34.7                           |
+| 5-6                   | x2   | 20      | pixelres_g5_l6_x2.tif | 2.6                                  | 2.4                                  | 35                             |
+| 5-6                   | x3   | 20      | edge_g5_l6_x3.tif     | 3.1                                  | 3.0                                  | 52.7                           |
+| 5-6                   | x4   | 20      | edge_g5_l6_x4.tif     | 3.7                                  | 3.6                                  | 70.4                           |
+| 7-1 (7.81)            | x6   | 20      | edge_g7_l1_x6.tif     | 4.7                                  | 4.5                                  | 47                             |
+| 7-1                   | x7   | 20      | edge_g7_l1_x7.tif     | 5.3                                  | 5.1                                  | 53.6                           |
 
 Avec ImageJ, on peut ensuite observer le profil des edges des lignes (edge transfer function). De plus, avec les memes images et les specs de la cible USAF, on peut déterminer un pixel en micron.  résolution : largeur de la edge transfer function (90% a 10%) en micron.
 
 Note : ne pas déplacer la plaque avec le "shift " sur ScanImage, cela désaligne les galvo.
 
-
-
 edge transfer function : convolution entre psf et notre edge
+
+| Zoom | Champ de vue (um x um) | Résolution x (um) | Résolution y (um) |
+| ---- | ---------------------- | ----------------- | ----------------- |
+| x2   | 128.3 x 128.3          | 1.3               | 1.2               |
+| x3   | 85.2 x 85.2            | 1.0               | 1.0               |
+| x4   | 63.8 x 63.8            | 0.92              | 0.90              |
+| x5   | 47.7 x 47.7            | 0.86              | 0.80              |
+| x6   | 42.5 x 42.5            | 0.78              | 0.75              |
+| x7   | 37.3 x 37.3            | 0.77              | 0.74              |
+| x8   | 32.3 x 32.3            | 0.76              | 0.73              |
+
+
 
 #### Résolution z
 
-données
+données : après avoir trouvé le focus, nous avons descendu de quelques microns et avont remonté par step de 500nm. Le noms des fichiers sont donc 00.tif, 05.tif, 10.tif, etc.
 
-Les images initiales commences très foncée est deviennent de plus en plus brillante plus on s'approche du focus. Toutefois, après avoir passé le focus, le images ne redeviennent pas tout a fait noire et on observe des "vagues de signal" sur la plaque. Ceci est probablement du a la plaque de resolution USAF qui n'Est pas tout a fait droite et cela peut créer une perte de symétrie et de l'interférence.
+Les images initiales commences très foncée est deviennent de plus en plus brillante plus on s'approche du focus. Toutefois, après avoir passé le focus, le images ne redeviennent pas tout a fait noire et on observe des "vagues de signal" sur la plaque. Ceci est probablement du a la plaque de resolution USAF qui n'est pas tout a fait droite et cela peut créer une perte de symétrie et de l'interférence.
 
-Champ de vue : 127/127
+Champ de vue : 128x128 um
 
 #### Fluorescence
 
