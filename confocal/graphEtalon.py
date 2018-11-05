@@ -38,8 +38,8 @@ majorFormatter2 = FormatStrFormatter('%.1f')
 minorLocator2 = MultipleLocator(0.1)                       #petit intervalle axe y
 
 
-reflexion = plt.plot(shift2, enveloppe, 'b:', linewidth = 5, label = 'Enveloppe qui ignore l\'interférence')
-transmission = plt.plot(shift, intensityNorm, 'k', marker="o", markersize=6, markeredgewidth=1, markeredgecolor='k', markerfacecolor='w', label = 'Données brutes')
+reflexion = plt.plot(zoom, y, 'k--', marker="s", label = 'Résolution en y')
+transmission = plt.plot(zoom, x, 'k', marker="o", markersize=6, markeredgewidth=1, markeredgecolor='k', markerfacecolor='w', label = 'Résolution en x')
 
 plt.gca().xaxis.set_major_locator(majorLocator1)
 plt.gca().tick_params(axis='both', labelsize = 14)    #tick size
@@ -49,17 +49,17 @@ plt.gca().yaxis.set_major_locator(majorLocator2)
 plt.gca().yaxis.set_major_formatter(majorFormatter2)
 plt.gca().yaxis.set_minor_locator(minorLocator2)
 
-plt.axis([-6, 14, 0, 1.1])
-plt.xlabel(r'Déplacement en z [$\mu$m]', fontsize=14)                        #nom axe x, font size
-plt.ylabel(r'Intensité moyenne normalisée captée', fontsize=14)                              #nom axe y, font size
+plt.axis([0, 10, 0.65, 1.4])
+plt.xlabel(r'Zoom', fontsize=14)                        #nom axe x, font size
+plt.ylabel(r'Largeur de la ESF [$\mu$m]', fontsize=14)                              #nom axe y, font size
 plt.rc('legend', fontsize=12)    # legend fontsize
 
-plt.legend(bbox_to_anchor=(0.56, 0.94), loc=2, borderaxespad=0., frameon=False)               #pos legende
+plt.legend(bbox_to_anchor=(0.69, 0.94), loc=2, borderaxespad=0., frameon=False)               #pos legende
 # plt.errorbar(x1, y1, xerr=0.5, yerr=2, fmt='ko', markersize=4, ecolor='k', capsize=2,)
 # plt.errorbar(x2, y2, xerr=0.5, yerr=2, fmt='wo', markersize=4, ecolor='k', capsize=2,)
 #plt.axhline(y=edge1, color='r', linestyle='-')
 #plt.axhline(y=edge9, color='r', linestyle='-')
-plt.savefig("fig1.png", dpi=700)
+#plt.savefig("fig1.png", dpi=700)
 plt.show()
 
 
