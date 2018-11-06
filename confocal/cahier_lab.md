@@ -70,7 +70,13 @@ edge transfer function : convolution entre psf et notre edge
 | x7   | 37.3 x 37.3            | 0.77              | 0.74              |
 | x8   | 32.3 x 32.3            | 0.76              | 0.73              |
 
+À revoir avec incertitudes!
 
+Graphique avec incertitudes
+
+![](/home/sebastien/Desktop/TPOB/confocal/res_xy2-page-001.jpg)
+
+Résolutions x et y se chevauchent ce qui est normal, semble avoir un plateau vers x6 zoom
 
 #### Résolution z
 
@@ -78,7 +84,15 @@ données : après avoir trouvé le focus, nous avons descendu de quelques micron
 
 Les images initiales commences très foncée est deviennent de plus en plus brillante plus on s'approche du focus. Toutefois, après avoir passé le focus, le images ne redeviennent pas tout a fait noire et on observe des "vagues de signal" sur la plaque. Ceci est probablement du a la plaque de resolution USAF qui n'est pas tout a fait droite et cela peut créer une perte de symétrie et de l'interférence.
 
-Champ de vue : 128x128 um
+Champ de vue : 128x128 um, zoom = x2, vrange = 0.5
+
+Graphique intensité en fonction déplacement en z, 0 = focus, positif = raproche de lobjectif
+
+![Graphique intensité en fonction déplacement en z, 0 = focus, positif = raproche de lobjetif](/home/sebastien/Desktop/TPOB/confocal/res_z-page-001.jpg)
+
+On pense que les creux viennent de l'interférence, alors on peut faire un enveloppe qui les ignore
+
+Quand même non symétrique : aberration sphérique?
 
 #### Fluorescence
 
@@ -86,4 +100,4 @@ On remplace l'échantillon USAF par une feuille d'arbre. Étant donné qu'on est
 
 Il est important d'ajuster la bague sur l'objectif qui prend compte du cover sur l'échantillon. La boite dit que ceux si sont entre 0.13 et 0.17mm d'épais, alors la bague est ajustée a 0.15 ce qui semble donner le meilleur résultat. Après avoir trouvé le focus, il faut mettre le gain et le laser au max pour voir quelques cellules.
 
-ovocite : 0.4484 intervalle de 5 micron. On refait le focus et on prend des images a différentes hauteurs pour faire une reconstruction 3D de l'ovocite. 0.5 micron par pixel et on bouge de 5 micron = voxel depth de 10 
+ovocite : 0.4484 intervalle de 5 micron, zoom 1.5 pour voir la cellule au complet. On refait le focus et on prend des images a différentes hauteurs pour faire une reconstruction 3D de l'ovocite. 0.5 micron par pixel et on bouge de 5 micron = voxel depth de 10 
