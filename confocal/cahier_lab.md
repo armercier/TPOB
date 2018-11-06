@@ -46,13 +46,13 @@ Voici un tableau des images utilisée pour caractériser la résolution en x et 
 
 | Groupe et sous-groupe | Zoom | Moyenne | Nom fichier           | Résolution x (pixel, edge 90% a 10%) | Résolution y (pixel, edge 90% a 10%) | Pixel pour 1 ligne + un espace |
 | --------------------- | ---- | ------- | --------------------- | ------------------------------------ | ------------------------------------ | ------------------------------ |
-| 5-6 (17.54)           | x5   | 20      | edge_g5_l6_x5.tif     | 4.6                                  | 4.2                                  | 94.1                           |
-| 7-6 (4.38)            | x8   | 20      | edge_g7_l1_x8.tif     | 6.0                                  | 5.8                                  | 34.7                           |
-| 5-6                   | x2   | 20      | pixelres_g5_l6_x2.tif | 2.6                                  | 2.4                                  | 35                             |
-| 5-6                   | x3   | 20      | edge_g5_l6_x3.tif     | 3.1                                  | 3.0                                  | 52.7                           |
-| 5-6                   | x4   | 20      | edge_g5_l6_x4.tif     | 3.7                                  | 3.6                                  | 70.4                           |
-| 7-1 (7.81)            | x6   | 20      | edge_g7_l1_x6.tif     | 4.7                                  | 4.5                                  | 47                             |
-| 7-1                   | x7   | 20      | edge_g7_l1_x7.tif     | 5.3                                  | 5.1                                  | 53.6                           |
+| 5-6 (17.54)           | x5   | 20      | edge_g5_l6_x5.tif     | 4.6                                  | 4.2                                  | 94±1                           |
+| 7-6 (4.38)            | x8   | 20      | edge_g7_l1_x8.tif     | 6.0                                  | 5.8                                  | 34±1                           |
+| 5-6                   | x2   | 20      | pixelres_g5_l6_x2.tif | 2.6                                  | 2.4                                  | 35±1                           |
+| 5-6                   | x3   | 20      | edge_g5_l6_x3.tif     | 3.1                                  | 3.0                                  | 52±1                           |
+| 5-6                   | x4   | 20      | edge_g5_l6_x4.tif     | 3.7                                  | 3.6                                  | 70±1                           |
+| 7-1 (7.81)            | x6   | 20      | edge_g7_l1_x6.tif     | 4.7                                  | 4.5                                  | 47±1                           |
+| 7-1                   | x7   | 20      | edge_g7_l1_x7.tif     | 5.3                                  | 5.1                                  | 53±1                           |
 
 Avec ImageJ, on peut ensuite observer le profil des edges des lignes (edge transfer function). De plus, avec les memes images et les specs de la cible USAF, on peut déterminer un pixel en micron.  résolution : largeur de la edge transfer function (90% a 10%) en micron.
 
