@@ -1,3 +1,5 @@
+
+
 # Laboratory Notebook - TPOB GPH4102
 
 [TOC]
@@ -291,6 +293,10 @@ Photoblanchiment : durant excitation les molécalues peuvent faire des réaction
 
 #### Observations montage
 
+Photo du montage : 
+
+![](/home/sebastien/Desktop/TPOB/confocal/45596877_1591517120950135_7765746967946199040_n.jpg)
+
 Explication générale : Le signal du laser est envoyé vers une système du galvanomètre qui va rediriger le faisceau. un système 4f est situé après le galvanomètre pour grossir le faisceau afin qu'il remplisse toute l'ouverture numérique de l'objectif. Cela permet  de mieux focaliser la lumière sur l'échantillon et d'avoir la meilleur résolution possible. le signal est déscanné et est envoyé a travers un miroir dichroique puis vers un pinhole qui va bloquer toute la lumière hors focus(ou au moins diminuer son intensité). 
 
 Miroir dichroique : laisse passer la lumière jusqu'à une certaine longueur d'onde, puis la réfléchie. Deuxx problemes : on travail en réfelctance alors la longueur d'onde ne change pas, le laser devrait être réfléchi autant à l'allé et au retour. De plus, la fluorescence réemet de la lumiere a plus haute longueur d'onde (a moins d'Avoir anti-stokes, ce qui n'est pas le cas), alors le miroir devrait encore bloquer la lumière. Ces deux problèmes sont ngéligeable puisque que le miroir n'est pas parfaitement alligné a 45 degré et qu'il n'est pas parfait, donc il y a toujours environ 1% du signal qui le traverse (SPEC SHEET). Ce 1% de signal est toutefois très suffisant pour que le PMT puisse amplifier le signal.
@@ -377,11 +383,112 @@ ovocite : 0.4484 intervalle de 5 micron, zoom 1.5 pour voir la cellule au comple
 
 ### Preparation
 
-[Lien du résumé de la dernière équipe]()
+#### Hi-Lo
 
-### In Lab
+[Lien du résumé de la dernière équipe](https://github.com/SebJercz/TPOB/blob/master/hilo/resumeHiLo.pdf)
 
+**fonctionnement de base de hilo :** 
 
+![](/home/sebastien/Desktop/TPOB/hilo/Screenshot at 2018-11-06 12:43:07.png)
+
+permet de rejeter la lumière hors en combinant une image avec éclairage uniforme et une image a éclairage structuré (pattern, speckle)
+
+**Ce qui a été fait :** principaux éléments du système d'illumination du microscope hilo ont été assemblé, mais certaines composantes doivent etre ajoutée/modifiée
+
+Pièces importantes :
+
+- camera DMK 21AF04
+
+**Plan semaine 1 : ** 
+
+- trouver un diffuseur qui fait des speckles de taille optimale (trouver cette  taille) car plaque de verre et papier nettoyant ne sont pas ideals
+- système d'éclairage uniforme (seulement léclairage structuré a été développé)
+- relais 4f qui fait passer dia faisceau de 3cm a 6.35mm
+- remplacer plaque de verre 4% reflexion par plaque ou cube 50%
+
+#### Microscopie
+
+**Résumé et théorie :** 
+
+![](/home/sebastien/Desktop/TPOB/hilo/kkk 13:03:20.png)
+
+Illumination de kholer:
+
+- pas mettre miroir au plans conjugés, mettre au plan de fourier
+- plan image de l'illumination doit avoir un condenseur pour brouiller l'image de la source lumineuse pour illumination uniforme
+- vis du condenseur permet de positionner condenseur pour bien le mettre au plan image
+
+Microscopie de phase:
+
+- Permet de produire des images a haut constraste de spécimen transparents
+- passage d'une onde dans un spécimen créé un déphasage et donc de l'interférence
+- transforme décalage de phase causé par passage dans specimen par changement d'amplitude de la lumière a laide d'une plaque de phase. Interférence entre rayon principal et rayons difractés
+
+**Questions de préparation : **
+
+$$\Delta r \approx 1.22\frac{\lambda}{D}L\approx\frac{0.6\lambda}{\text{NA}}$$
+
+pour lumière vert qui est environ 540nm et NA =1, on a 336nm.
+
+### In Lab semaine 1
+
+**Ajustement du microscope **
+
+1) on voit bel et bien de la lumière qui sort du pied
+
+3) on se place a x10
+
+4) le diaphragme est ouvert et le microscope est mit en position O
+
+5) L'échantillon utilisé est la r`egle et non les bactéries. Avec la grosse vis et puis la petite vis on atteint une image nette
+
+**Ajustement du condensateur :**
+
+Diaphragme de champ fermé au max, vis viagramme de champ = roulette veritcal noire derriere source lumineuse (dur a voir)
+
+Vis pour déplacement vertical du condensateur : petite vis noire en dessous de la plaque. Vis xy, deux vis grise en doussous de celles du diaphragme
+
+on centre polygone diaphragme de champ avec xy et on met au focus avec vis hauteur. on reouvre le diaphgramme a la grosseur du champ de vue, pas plus.
+
+On ajuste le diaphgrame douverture pour avoir un équilibre entre résolution et contraste
+
+**Échantillons vivants** :
+
+Mettre 15 uL sur une lame puis deposser une lamelle de levure et de bactéries (2 lames dfférentes) Lame L  =levures, lame B = bactéries
+
+Levures : Amas de cellules
+
+Levures x40:
+
+![](/home/sebastien/Desktop/TPOB/hilo/lev40.jpg)
+
+Gros amas de cellule, noyau bien visible
+
+Levures x100 avec huile:
+
+![](/home/sebastien/Desktop/TPOB/hilo/lev_100.jpg)
+
+Structure du noyau encore plus visible
+
+On obseve des amas de cellules avec des cellules qui flottent autour, et quelques plus petites particules qui flottent. On observe également des bulles d'aire beaucoup plus grosse que les cellules.
+
+**Bactéries:**
+
+On met l'objectif 40x et lobjectif et ph4. avec la lentille de bertrand on alligne les aneaux du condensateur avec lanneau de phase de l'objectif. a x40 presque rien est visible, mais a x100 on voit des petits organismes qui grouille le long des bordures des bulles d'air. Objetif x100 nécessite de l'huile
+
+Bactéries x40:
+
+![](/home/sebastien/Desktop/TPOB/hilo/bac40.jpg)
+
+On remarque de petits points pâles, surtout près de la bordure noire
+
+Bactéries x100 avec huile::
+
+![](/home/sebastien/Desktop/TPOB/hilo/bac100.jpg)
+
+Les bactéries sont les ptits objets "cylindriques" légèrement plus pâle que le fond. Généralement pred de la bordure de la bulle d'Eau.
+
+La lentille sur la caméra possède quelques saletés et poussières, qui sont visible au premier plan sur toutes les images. Nettoyage de la lentille serait necéssaire
 
 ## Optical tweezers
 
