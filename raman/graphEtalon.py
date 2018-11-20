@@ -18,7 +18,7 @@ pixels.pop()
 intensity = intensity[260:-1]
 intensityNorm = [x / max(intensity) for x in intensity]
 
-#SWITCH FROM PIXEL TO
+#SWITCH FROM PIXEL TO sauce
 b = [671, 690, 708, 709]
 a = [589, 844, 1092, 1106]
 z = np.polyfit(a,b,1)
